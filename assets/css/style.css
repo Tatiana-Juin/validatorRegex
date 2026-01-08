@@ -1,0 +1,184 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;   
+}
+
+body{
+    background-color: #F8FAFC;
+}
+
+/* **************HEADER****************  */
+header{
+    width:100vw;
+    /* border:1px solid blue; */
+    margin: 20px 0 20px 0;
+}
+
+h1{
+    text-align: center;
+    color:purple;
+}
+
+/* ***********BBLIOTHEQUE  */
+
+.bibliotheque{
+    background-color: white;
+    width:50vw;
+    /* border:1px solid blue; */
+    padding:30px;
+    margin:auto;
+    border-radius:20px;
+    /* border:1px solid blue; */
+}
+
+/* style de la div qui  regroupe le titre le titre et le logo  */
+.header-bibliotheque{
+    display:flex;
+    justify-content: space-between;
+}
+
+h2{
+    margin-bottom:15px;
+    font-weight:600;
+}
+
+.bi-arrow-up-short{
+    font-size:30px;
+    cursor:pointer;
+}
+
+.btn{
+    padding:10px;
+    width:110px;
+    font-size:13px;
+    border-radius:30px;
+    border:none;
+    cursor: pointer;
+    background-color: #F8FAFC;
+    margin-left:20px;
+
+}
+
+/* ****************TEST ET SCORE */
+.div-test-score{
+
+    /* border:1px solid blue; */
+    width:90vw;
+    display:flex;
+    margin:auto;
+    gap:5vw;
+    margin-top: 40px;
+    
+}
+
+.div-resultat{
+    /* border:1px solid red; */
+    width:30vw;
+    background-color: #ffff;
+    padding:20px;
+    height:30vh;
+    border-radius:20px;
+}
+
+.div-test{
+    /* border:1px solid black; */
+    width:70vw;
+    background-color: #ffff;
+    padding:20px;
+}
+
+/* Pour lancer le test  */
+#btn-lancer{
+    margin-bottom:20px;
+    border:none;
+    padding:20px;
+    background-color: #2563EB;
+    color: white;
+    cursor:pointer;
+    font-weight: bolder;
+    border-radius:20px;
+}
+
+/* pour mettre le titre et le le toggle */
+.div-score{
+    display: flex;
+    justify-content: space-between;
+    
+}
+/* Div regroupant le pourcentage  et les test reussi  */
+.div-pourcentage{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom:10px;
+}
+/* style du pourcentage  */
+.pourcentage{
+    color:red;
+    font-weight: bolder;
+    /* font-size:30px; */
+}
+/*  titre de la section */
+.titre-section{
+    text-align:center;
+}
+/* style du champs input   */
+.input-regex{
+    width:100%;
+    padding:03px;
+    margin-bottom:20px;
+}
+
+.div-bibliotheque-test{
+    display: flex;
+    /* justify-content: space-between; */
+    /* flex-direction: column; */
+}
+/* Pour les bouton qui vont ecrire des test  */
+textarea{
+    width:100%;
+    margin-top: 20px;
+}
+/* style de la div regroupant les bouton  */
+.div-btn{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+/* REPOSNIVE PETIT ECRAN  */
+@media screen and (max-width:860px){
+    .bibliotheque{
+        width:80vw;
+    }
+    .hiden-bibliotheque{
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .hiden-bibliotheque button,.div-bibliotheque-test button,.div-btn button{
+        margin-top:15px;
+    }
+
+    .div-test-score{
+        flex-direction: column;
+        width:80vw;
+
+    }
+
+    .div-resultat,.div-test{
+        /* border:1px solid red; */
+        width:100%;
+    }
+
+    .div-bibliotheque-test{
+        flex-direction: column;
+    }
+    
+    .div-btn{
+        flex-direction: column;
+    }
+
+    
+}

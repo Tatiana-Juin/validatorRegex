@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Verificateur de regex</title>
+</head>
+<body>
+    
+    <header>
+        <!-- titre de la page  -->
+        <h1>Validateur de regex </h1>
+    </header>
+
+    <main>
+        <!-- Bibliotheque de code  -->
+         <div class="bibliotheque">
+            <!-- EN TETE DE BIBLIOTHEQUE DE CODE  -->
+            <div class="header-bibliotheque ">
+                <div class="div-title-header">
+                    <h2>Bibliotheque de code </h2>
+                </div>
+
+                <div class="div-icon-header">
+                    <i class="bi bi-arrow-up-short toggle"></i>
+                </div>
+
+            </div>
+            <!-- POUR LES BOUTON   -->
+            <!-- <div> -->
+                <div class="hiden-bibliotheque">
+                    <button class="btn">Telephone</button>
+                    <button class="btn">Email</button>
+                </div>
+            <!-- </div> -->
+         </div>
+
+         <div class="div-test-score">
+            <!-- regourpe le bouton lancer le score et score de test  -->
+            <div class="div-resultat">
+                <button id="btn-lancer" >Lancer le test </button>
+                
+                <div>
+                    <!-- Pour le titre qui est le score de precision et le logo  -->
+                    <div class="div-score">
+                        <!-- <div> -->
+                            <h2>Score du precision</h2>
+                        <!-- </div> -->
+                        <!-- <div> -->
+                             <i class="bi bi-arrow-up-short toggle"></i>
+                        <!-- </div> -->
+                    </div>
+                    
+                    <!-- Pour le pourcentage et test reussi -->
+                     <div class="div-pourcentage">
+                        <!-- <div > -->
+                            <p class="pourcentage">40%</p>
+                        <!-- </div> -->
+                        <!-- <div> -->
+                            <p>1/5 test reussi </p>
+                        <!-- </div> -->
+                     </div>
+                     <p>précision des tag [KO],[OK]</p>
+                </div>
+              
+
+                
+            </div>
+
+            <div class="div-test">
+                <!-- titre + champs pour inserer les regex -->
+                <h2 class="titre-section">Expression reguliere</h2>
+                <input type="text" class="input-regex" id="">
+
+                <!-- Pour inserer les test -->
+                <div>
+                    <!-- pour le ttitre et les bouton de test  -->
+                    <div class="div-bibliotheque-test">
+                        <!-- <div> -->
+                            <h2 class="titre-section" >Donné test</h2>
+                        <!-- </div> -->
+                        <!-- <div> -->
+                            <button class="btn">Tel</button>
+                            <button class="btn">Email</button>
+                        <!-- </div> -->
+                    </div>
+
+                    <textarea name="" id="" rows="20"  placeholder="[OK] test reussi 
+[KO] test echouer"></textarea>
+
+                    <!-- pour les bouton de copier  -->
+                    <div class="div-btn">
+                        <!-- <div> -->
+                            <button class="btn">Effacer</button>
+                        <!-- </div> -->
+                        <!-- <div> -->
+                            <button class="btn">copier</button>
+                        <!-- </div> -->
+
+                    </div>
+                </div>
+                
+            </div>
+
+         </div>
+        
+    </main>
+
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
