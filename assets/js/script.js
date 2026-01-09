@@ -41,20 +41,30 @@ toggleScore.addEventListener("click",()=>{
 // Fonction pour verifier l'expression 
 btnLancer.addEventListener("click",(e) =>{
     e.preventDefault()
+    // Selectionne le p pour afficher le message erreur 
     let erreur = document.querySelector(".erreur")
     // pour recuperer la valeur du texte 
    let regexValue = inputRegex.value.trim();
+//    pour verifier que le regex est bon on verifie les symbole 
+    let symbolesRegex = /[\[\]\(\)\*\+\?\.\\\^\$\|\{\}]/;
+
    if(regexValue==""){
      erreur.textContent="Erreur tu dois saisir un regex "
-     erreur.style.color="red";
+    return erreur.style.color="red";
    }
-   else{
+//    si il n'y a aucun symbole c'est du texte 
+   else if(!symbolesRegex.test(regexValue)) {
+    erreur.textContent="";
+    erreur.textContent="Attention ceci a ressemble a du texte et pas à un regex"
+    return erreur.style.color="red";
+    
+   }else{
+
     erreur.textContent="";
     // appelle de la function pour faire les test
     funcTest(regexValue)
    }
    
-
 })
 
 // function pour les test 
