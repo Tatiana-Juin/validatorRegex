@@ -18,13 +18,26 @@ let btnEffacer = document.querySelector(".btn-effacer");
 let btnCopier = document.querySelector(".btn-copier");
 
 // Pour faire le toggle 
-toggleBiblio.addEventListener("click",() =>{
-    // on declare une variable et on ajoute une class qui est hiden 
+// toggleBiblio.addEventListener("click",() =>{
     
-    const isHiden = hidenBiblio.classList.toggle("hiden");
-    console.log(isHiden)
-//  si hiden est true donc il a disparu on change l'icon du bas 
-    toggleBiblio.classList.toggle("bi-arrow-down-short",isHiden)
-    // si false en haut
-    toggleBiblio.classList.toggle("bi-arrow-up-short",!isHiden)
+    
+//     const isHiden = hidenBiblio.classList.toggle("hiden");
+//     console.log(isHiden)
+
+//     toggleBiblio.classList.toggle("bi-arrow-down-short",isHiden)
+   
+//     toggleBiblio.classList.toggle("bi-arrow-up-short",!isHiden)
+// })
+const funcToggle = (btn,content)=>{
+    const isHiden = content.classList.toggle("hiden")
+    btn.classList.toggle("bi-arrow-down-short",isHiden)
+    btn.classList.toggle("bi-arrow-up-short",!isHiden)
+}
+
+toggleBiblio.addEventListener("click", () => {
+    funcToggle(toggleBiblio, hidenBiblio); 
+});
+
+toggleScore.addEventListener("click",()=>{
+    funcToggle(toggleScore, pourcentage); 
 })
