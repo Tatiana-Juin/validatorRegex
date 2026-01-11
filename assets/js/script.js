@@ -107,16 +107,16 @@ function funcTest(regexValue){
                  let reussite = false;
                 if(indicateur ==="[OK]" && estValide) reussite = true;
                 if(indicateur ==="[KO]" && !estValide) reussite = true;
-
+                // s'il a pas d'erreur on ajoute 
                  if(reussite){
                     compteurReussi++;
-                    // console.log("succes")
+                   
                 }
                 
             }else{
                 // s'il a une erreur consernant les test 
                 erreur.textContent="format invalide"
-                return erreur.style.color="red";
+                 erreur.style.color="red";
             }
         }
        
