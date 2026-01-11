@@ -73,6 +73,22 @@ function funcTest(regexValue){
     console.log(regexValue)
     // recuperation du test 
     let testValue = textareaTest.value.trim()
+    let lignes = testValue.split("\n");
+    // on boucle sur lignes 
+    lignes.forEach((ligne) => {
+        // verifie le KO et OK 
+        const analyse = ligne.match(/^(\[(?:OK|KO)\])\s*(.*)/i);
+        // Si analyse == true 
+        
+        if(analyse){
+            let indicateur = analyse[1].toUpperCase()
+            const text = analyse[2].trim()
+            // console.log("indicateur :",indicateur)
+            // console.log("text : ",text)
+            console.log(analyse.length)
+        }
+
+    });
     
-    // console.log(testValue)
+    
 }
