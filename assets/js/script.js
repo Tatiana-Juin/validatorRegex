@@ -139,8 +139,10 @@ function calculerScore(succes,total){
 }
 
 btnEffacer.addEventListener("click",() =>{
-  
+
     inputRegex.value="";
     textareaTest.value="";
+    paraPourcentage.textContent="0%";
+    resultatTest.textContent="0 /0";
    
 })
