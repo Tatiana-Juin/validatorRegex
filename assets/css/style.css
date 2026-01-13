@@ -6,30 +6,68 @@
 
 body{
     background-color: #F8FAFC;
+    font-family: 'Montserrat', serif;
 }
 
 /* **************HEADER****************  */
 header{
     width:100vw;
-    /* border:1px solid blue; */
     margin: 20px 0 20px 0;
 }
 
 h1{
     text-align: center;
     color:purple;
+    font-family: 'Playfair Display', serif;
 }
 
-/* ***********BBLIOTHEQUE  */
+/* ***********Element style  */
+.card{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
+}
+
+button{
+    cursor: pointer;
+    padding: 15px 20px;
+
+    background-color: #719af3;
+    border-radius: 20px;
+    border: none;
+    color: white;
+
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn_secondary{
+    background-color: #04b5bb !important;
+    padding: 10px 15px !important;
+}
+
+.btn_light{
+    background-color: #015a5e !important;
+    color: #ffffff !important;
+    padding: 10px 15px !important;
+}
+
+.btn_light:hover{
+    transform: translateY(0px);
+}
+
+button:hover{
+    background-color: #1E40AF;
+    transform: translateY(-1px);
+}
+
+/* ***********BIBLIOTHEQUE  */
 
 .bibliotheque{
     background-color: white;
     width:50vw;
-    /* border:1px solid blue; */
-    padding:30px;
+    padding:20px;
     margin:auto;
     border-radius:20px;
-    /* border:1px solid blue; */
 }
 
 /* style de la div qui  regroupe le titre le titre et le logo  */
@@ -39,7 +77,6 @@ h1{
 }
 
 h2{
-    margin-bottom:15px;
     font-weight:600;
 }
 
@@ -48,17 +85,6 @@ h2{
     cursor:pointer;
 }
 
-.btn-tel-bibliotheque,.btn-email-bibliotheque,.btn-tel-test,.btn-email-test,.btn-effacer,.btn-copier{
-    padding:10px;
-    width:110px;
-    font-size:13px;
-    border-radius:30px;
-    border:none;
-    cursor: pointer;
-    background-color: #F8FAFC;
-    margin-left:20px;
-
-}
 /* Pour faire disparaitre les elements selectionner */
 .hiden {
     display: none !important;
@@ -71,7 +97,6 @@ h2{
     width:90vw;
     display:flex;
     margin:auto;
-    gap:5vw;
     margin-top: 40px;
     
 }
@@ -79,10 +104,12 @@ h2{
 .div-resultat{
     /* border:1px solid red; */
     width:30vw;
-    background-color: #ffff;
     padding:20px;
-    height:30vh;
-    border-radius:20px;
+    border-right: 1px solid #58585821;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .div-test{
@@ -92,22 +119,11 @@ h2{
     padding:20px;
 }
 
-/* Pour lancer le test  */
-#btn-lancer{
-    margin-bottom:20px;
-    border:none;
-    padding:20px;
-    background-color: #2563EB;
-    color: white;
-    cursor:pointer;
-    font-weight: bolder;
-    border-radius:20px;
-}
-
 /* pour mettre le titre et le le toggle */
 .div-score{
     display: flex;
     justify-content: space-between;
+
     
 }
 /* Div regroupant le pourcentage  et les test reussi  */
@@ -115,6 +131,8 @@ h2{
     display:flex;
     justify-content: space-between;
     margin-bottom:10px;
+    padding: 10px;
+    background-color: #dce2e7;
 }
 /* style du pourcentage  */
 .pourcentage{
@@ -129,19 +147,45 @@ h2{
 /* style du champs input   */
 .input-regex{
     width:100%;
-    padding:03px;
+    padding:10px;
+    font-size: 1.2em;
     margin-bottom:20px;
+    border-radius: 5px;
+
 }
 
 .div-bibliotheque-test{
+    height: fit-content;
     display: flex;
-    /* justify-content: space-between; */
-    /* flex-direction: column; */
+    gap:15px;
+    align-items: center;
 }
+
+.div-bibliotheque-test .div-preset{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
 /* Pour les bouton qui vont ecrire des test  */
-textarea{
-    width:100%;
-    margin-top: 20px;
+textarea {
+    width: 100%;
+    margin: 15px 0;
+    border-radius: 5px;
+    resize: vertical;
+    
+    line-height: 20px; 
+    padding: 0 10px;
+    border: 1px solid #ccc;
+
+    background-image: linear-gradient(
+        #ffffff 50%, 
+        #f2f2f2 50%
+    );
+    
+    background-size: 100% 40px; 
+    
+    background-attachment: local;
 }
 /* style de la div regroupant les bouton  */
 .div-btn{

@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
     <title>Verificateur de regex</title>
 </head>
 <body>
@@ -16,7 +19,7 @@
 
     <main>
         <!-- Bibliotheque de code  -->
-         <div class="bibliotheque">
+         <div class="bibliotheque card">
             <!-- EN TETE DE BIBLIOTHEQUE DE CODE  -->
             <div class="header-bibliotheque ">
                 <div class="div-title-header">
@@ -30,18 +33,16 @@
             </div>
             <!-- POUR LES BOUTON   -->
             <!-- <div> -->
-                <div class="hiden-bibliotheque">
-                    <button class="btn-tel-bibliotheque">Telephone</button>
-                    <button class="btn-email-bibliotheque">Email</button>
+                <div >
+                    <button class="btn_secondary">Telephone</button>
+                    <button class="btn_secondary">Email</button>
                 </div>
             <!-- </div> -->
          </div>
 
-         <div class="div-test-score">
+         <div class="div-test-score card">
             <!-- regourpe le bouton lancer le score et score de test  -->
             <div class="div-resultat">
-                <button id="btn-lancer" >Lancer le test </button>
-                
                 <div>
                     <!-- Pour le titre qui est le score de precision et le logo  -->
                     <div class="div-score">
@@ -65,26 +66,36 @@
                      <p>précision des tag [KO] = test qui doit echouer,[OK] = test qui doit reussir</p>
                      <p class="erreur"></p>
                 </div>
-              
-
                 
+                <div>
+                    <button id="btn-lancer" >Lancer le test </button>
+                </div>
             </div>
 
             <div class="div-test">
                 <!-- titre + champs pour inserer les regex -->
-                <h2 class="titre-section">Expression reguliere</h2>
-                <input type="text" class="input-regex" id="" name="input-regex">
+                <h2 class="titre-section" style="margin-bottom: 20px;">Expression reguliere</h2>
+                <input 
+                    type="text" 
+                    class="input-regex" 
+                    id="" 
+                    name="input-regex"
+                    placeholder="(ex: ^\d{10}$ )"
+                >
 
                 <!-- Pour inserer les test -->
                 <div>
                     <!-- pour le ttitre et les bouton de test  -->
                     <div class="div-bibliotheque-test">
                         <!-- <div> -->
-                            <h2 class="titre-section" >Donné test</h2>
+                            <h2 class="titre-section" >Donné test: </h2>
                         <!-- </div> -->
                         <!-- <div> -->
-                            <button class="btn-tel-test">Tel</button>
-                            <button class="btn-email-test">Email</button>
+                            <div class="div-preset">
+                                <button class="btn_light">Tel</button>
+                                <button class="btn_light">Email</button>
+                            </div>
+                         
                         <!-- </div> -->
                     </div>
 
@@ -94,10 +105,10 @@
                     <!-- pour les bouton de copier  -->
                     <div class="div-btn">
                         <!-- <div> -->
-                            <button class="btn-effacer">Effacer</button>
+                            <button class="btn_secondary">Effacer</button>
                         <!-- </div> -->
                         <!-- <div> -->
-                            <button class="btn-copier">copier</button>
+                            <button class="btn_secondary">copier</button>
                         <!-- </div> -->
 
                     </div>
