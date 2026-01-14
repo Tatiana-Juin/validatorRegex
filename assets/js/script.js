@@ -43,9 +43,8 @@ toggleScore.addEventListener("click",()=>{
 })
 
 
-// Fonction pour verifier l'expression 
-btnLancer.addEventListener("click",(e) =>{
-    e.preventDefault()
+function funcVerificationRegex(e){
+     e.preventDefault()
     // Selectionne le p pour afficher le message erreur 
     
     // pour recuperer la valeur du texte 
@@ -69,8 +68,10 @@ btnLancer.addEventListener("click",(e) =>{
     // appelle de la function pour faire les test
     funcTest(regexValue)
    }
-   
-})
+}
+
+// Fonction pour verifier l'expression 
+btnLancer.addEventListener("click",funcVerificationRegex)
 
 // function pour un test 
 function funcTest(regexValue){
@@ -145,4 +146,10 @@ btnEffacer.addEventListener("click",() =>{
     paraPourcentage.textContent="0%";
     resultatTest.textContent="0 /0";
    
+})
+
+btnCopier.addEventListener("click",()=>{
+    let regexValue = inputRegex.value.trim();
+
+    console.log(regexValue)
 })
