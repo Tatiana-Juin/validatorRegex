@@ -45,10 +45,7 @@ toggleScore.addEventListener("click",()=>{
 // FONCTION POUR VALIDER LA STRUCTURE DES REGEX  
 function funcVerificationRegex(regexValue){
      
-    // Selectionne le p pour afficher le message erreur 
-    
-    // pour recuperer la valeur du texte 
-//    let regexValue = inputRegex.value.trim();
+   
 //    pour verifier que le regex est bon on verifie les symbole 
     let symbolesRegex = /[\[\]\(\)\*\+\?\.\\\^\$\|\{\}]/;
 
@@ -155,16 +152,6 @@ btnEffacer.addEventListener("click",() =>{
     resultatTest.textContent="0 /0";
    
 })
-
-btnCopier.addEventListener("click",()=>{
-    let regexValue = inputRegex.value.trim();
-    if(funcVerificationRegex(regexValue)){
-        // console.log(regexValue)
-        funcCopier(regexValue);
-
-    }
-    
-})
 // FUNCTION POUR COPIER DANS LE PRESSE PAPIER LE REGEX
 function funcCopier(regexValue){
     navigator.clipboard.writeText(regexValue)
@@ -181,3 +168,30 @@ function funcCopier(regexValue){
         console.error("Erreur lors de la copie ",err)
     })
 }
+
+btnCopier.addEventListener("click",()=>{
+    let regexValue = inputRegex.value.trim();
+    if(funcVerificationRegex(regexValue)){
+        // console.log(regexValue)
+        funcCopier(regexValue);
+
+    }
+    
+})
+
+
+function regexBibliotheque(regex){
+    inputRegex.value="";
+    inputRegex.value = regex;
+}
+
+btnTelBiblio.addEventListener("click",() =>{
+   
+    regexBibliotheque("^0[1-9][0-9]{8}$");
+   
+})
+
+btnEmailBiblio.addEventListener("click",()=>{
+    regexBibliotheque("^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$");
+})
+
