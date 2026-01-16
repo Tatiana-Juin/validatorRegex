@@ -168,10 +168,12 @@ btnCopier.addEventListener("click",()=>{
 function funcCopier(regexValue){
     navigator.clipboard.writeText(regexValue)
     .then( ()=>{
+        // Affiche un message pour dire que le texte a etait copié 
         erreur.textContent="Le Regex à était copié ! ";
         erreur.style.color="green";
+        // s'efface au bou de 2s 
         setTimeout(() => {
-            erreur.textContent=""
+            erreur.textContent="";
         }, 2000);
     } )
     .catch(err=>{
