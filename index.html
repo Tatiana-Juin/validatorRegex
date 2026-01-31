@@ -7,6 +7,7 @@
     <title>ValidatorRegex</title>
 </head>
 <body>
+    <!-- HEADER ET MENU -->
     <header>
         <div class="container">
             <nav>
@@ -91,7 +92,7 @@
             </div>
         </section>
 
-          <!-- sSYSTEME DE TAG -->
+          <!-- SYSTEME DE TAG -->
         <section id="tag-system" class="section-padding tag-system">
             <div class="container">
                 <div class="section-title">
@@ -100,22 +101,22 @@
                 </div>
                 
                 <div class="tag-container">
-                    <!-- Tag OK -->
+                    <!-- TAG OK -->
                     <div class="tag-box" style="border-top: 4px solid var(--accent-green);">
                         <span class="tag-badge-lg bg-ok">[OK]</span>
                         <h3>Succès attendu</h3>
-                        <p style="color: var(--text-muted);">
+                        <p>
                             Utilisez <strong>[OK]</strong> pour indiquer qu'un test <strong>doit correspondre </strong> à votre regex. Si le test passe (la regex matche le texte), c'est un succès ✓
                             <br><br>
                             <em>Exemple : <code>contact@test.fr [OK]</code></em>
                         </p>
                     </div>
 
-                    <!-- Tag KO -->
+                    <!-- TAG KO -->
                     <div class="tag-box" style="border-top: 4px solid var(--accent-red);">
                         <span class="tag-badge-lg bg-ko">[KO]</span>
                         <h3> Échec attendu</h3>
-                        <p style="color: var(--text-muted);">
+                        <p>
                             Utilisez <strong>[KO</strong>] pour indiquer qu'un test <strong>ne doit pas correspondre</strong> à votre regex. Si le test échoue (la regex ne matche pas le texte), c'est un succès ✓
                             <br><br>
                             <em>Exemple : <code>invalide-mail [KO]</code></em>
@@ -143,25 +144,25 @@
                     <div class="card">
                         <div class="step-badge">2</div>
                         <h3>Créer des tests</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Écrivez vos tests dans la zone de test. Utilisez le format : [TAG] votre_texte_de_test</p>
+                        <p style="font-size: 0.9rem; ">Écrivez vos tests dans la zone de test. Utilisez le format : [TAG] votre_texte_de_test</p>
                     </div>
 
                     <div class="card">
                         <div class="step-badge">3</div>
                         <h3>Ajouter les tags</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Marquez chaque test avec <strong>[OK] </strong>si vous attendez une correspondance, <strong>[KO] </strong> si vous attendez un échec.</p>
+                        <p style="font-size: 0.9rem; ">Marquez chaque test avec <strong>[OK] </strong>si vous attendez une correspondance, <strong>[KO] </strong> si vous attendez un échec.</p>
                     </div>
 
                     <div class="card">
                         <div class="step-badge">4</div>
                         <h3>Lancer la validation</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Exécutez les tests et regardez l'application vérifier si votre regex fonctionne comme prévu</p>
+                        <p style="font-size: 0.9rem; ">Exécutez les tests et regardez l'application vérifier si votre regex fonctionne comme prévu</p>
                     </div>
 
                     <div class="card">
                         <div class="step-badge">5</div>
                         <h3>Consulter le score</h3>
-                        <p style="font-size: 0.9rem; color: var(--text-muted);">Visualisez votre score de précision en pourcentage et le nombre de tests réussis (ex: 5/5 = 100%).</p>
+                        <p style="font-size: 0.9rem;">Visualisez votre score de précision en pourcentage et le nombre de tests réussis (ex: 5/5 = 100%).</p>
                     </div>
                 </div>
             </div>

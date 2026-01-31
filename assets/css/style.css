@@ -8,9 +8,9 @@
     --text-main:black;
     --card-bg:#ffffff;
     --color-title:purple;
-    --primary: #2563eb;     /* Bleu royal */
-    --border-color: #e2e8f0; /* Gris bordure */
-     --accent-green: #059669; /* Vert émeraude */
+    --primary: #2563eb;     
+    --border-color: #e2e8f0; 
+     --accent-green: #059669; 
     --accent-red: #dc2626;
 }
 
@@ -76,7 +76,7 @@ nav {
 
 .nav-links a {
     font-weight: 600;
-    /* color: var(--text-muted); */
+   
     transition: color 0.3s;
     font-size: 0.95rem;
 }
@@ -84,7 +84,7 @@ nav {
      color: var(--color-title); 
 }
 
-/* Bouton  */
+/* Bouton action commencer  */
 .btn-cta {
     background-color: var(--primary)!important;
     color: var(--card-bg) !important;
@@ -95,7 +95,7 @@ nav {
     display: inline-block;
     border: none;
     cursor: pointer;
-    }
+}
 
 .btn-cta:hover {
     transform: translateY(-2px);
@@ -108,7 +108,7 @@ nav {
     font-size: 1.5rem;
     color: var(--text-main);
 }
-
+/* ************HERO ************* */
  .hero {
     padding-top: 180px;
     padding-bottom: 100px;
@@ -134,7 +134,7 @@ nav {
     margin: 0 auto 40px;
 }
 
- /* --- FEATURES SECTION --- */
+ /* --- FEATURES  --- */
 .features {
     background-color: var(--card-bg);
 }
@@ -147,7 +147,7 @@ nav {
 .section-title h2 {
     font-size: 2.5rem;
     margin-bottom: 15px;
-    color: #0f172a;
+    color: var(--color-title);
 }
 
  .grid {
@@ -257,36 +257,36 @@ nav {
 }
 
 @media (max-width: 768px) {
-.hero h1 {
-     font-size: 2.5rem; 
-}
-.hero { 
-    padding-top: 140px; 
-}
+    .hero h1 {
+        font-size: 2.5rem; 
+    }
+    .hero { 
+        padding-top: 140px; 
+    }
 
-.nav-links {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: white;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 0;
-    transform: translateY(-150%);
-    transition: transform 0.3s ease;
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-}
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
 
-.nav-links.active { 
-    transform: translateY(0); 
-}
-.menu-toggle { 
-    display: block; 
-}
+    .nav-links.active { 
+        transform: translateY(0); 
+    }
+    .menu-toggle { 
+        display: block; 
+    }
 
-.tag-container { 
-    flex-direction: column;
- }
+    .tag-container { 
+        flex-direction: column;
+    }
 }
