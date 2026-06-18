@@ -44,15 +44,11 @@ toggleScore.addEventListener("click",()=>{
 
 // FONCTION POUR VALIDER LA STRUCTURE DES REGEX  
 function funcVerificationRegex(regexValue){
-     const MAX_CHARS = 6000;
-    if (regexValue.length > MAX_CHARS) {
-        erreur.textContent = "Trop de données (max 6000 caractères)";
-        erreur.style.color = "red";
-        return;
-    }
+    // Nombre maximum de caractere qu'on peut ecrire dedans 
+   
 //    pour verifier que le regex est bon on verifie les symbole 
     let symbolesRegex = /[\[\]\(\)\*\+\?\.\\\^\$\|\{\}]/;
-
+    // verifie que le ce n'est pas vide 
    if(regexValue==""){
      erreur.textContent="Erreur tu dois saisir un regex "
      erreur.style.color="red";
@@ -92,64 +88,89 @@ btnLancer.addEventListener("click",(e)=>{
 
 
 //FUNCTION POUR LES TEST
-function funcTest(regexValue){
+async function funcTest(regexValue) {
     compteurTest = 0;
     compteurReussi = 0;
-    // console.log(regexValue)
-    // recuperation du test 
-    let testValue = textareaTest.value.trim()
+    erreur.textContent = "";
+
+    const MAX_CHARS = 6000;
+    let testValue = textareaTest.value.trim();
+
+    // Protection taille des entrées
+    if (testValue === "") {
+        erreur.textContent = "Erreur tu dois saisir un test";
+        erreur.style.color = "red";
+        return;
+    }
+
+    if (testValue.length > MAX_CHARS) {
+        erreur.textContent = "Trop de données (max 6 000 caractères)";
+        erreur.style.color = "red";
+        return;
+    }
+
     let lignes = testValue.split("\n");
-    
-    let moteurRegex = new RegExp(regexValue);
 
-    // on boucle sur lignes 
-    lignes.forEach((ligne) => {
-        // Il faut obligatoireemnt qu'il est un test pour que ca fonctionne
+    for (const ligne of lignes) {
 
-        if(ligne==""){
-           erreur.textContent="Erreur tu dois saisir un test "
-           return erreur.style.color="red"
-        }else{
-             // verifie le KO et OK 
-            const analyse = ligne.match(/^(\[(?:OK|KO)\])\s*(.*)/i);
-            // Si analyse == true 
-            if(analyse){
-                // recuperer indicateur 
-                let indicateur = analyse[1].toUpperCase()
-                // recuperer le text du test 
-                const text = analyse[2].trim()
-                // console.log("indicateur :",indicateur)
-                // console.log("text : ",text)
+        if (ligne.trim() === "") continue; 
 
-                let estValide = moteurRegex.test(text)
-                compteurTest++;
-                 let reussite = false;
-                if(indicateur ==="[OK]" && estValide) reussite = true;
-                if(indicateur ==="[KO]" && !estValide) reussite = true;
-                // s'il a pas d'erreur on ajoute 
-                 if(reussite){
-                    compteurReussi++;
-                   
-                }
-                
-            }else{
-                // s'il a une erreur consernant les test 
-                erreur.textContent="Format invalide - ton test doit commencer par [ok] ou [ko]"
-                 erreur.style.color="red";
+        const analyse = ligne.match(/^(\[(?:OK|KO)\])\s*(.*)/i);
+
+        if (analyse) {
+            let indicateur = analyse[1].toUpperCase();
+            const text = analyse[2].trim();
+
+            let estValide = false;
+
+            // Protection ReDoS via Web Worker + timeout
+            try {
+                estValide = await testerAvecTimeout(regexValue, text, 200);
+            } catch (err) {
+                erreur.textContent = "⚠️ " + err.message;
+                erreur.style.color = "red";
+                return; // on arrête tout si timeout ou erreur
             }
-        }
-       
 
-    });
-    let detailTest = `${compteurReussi} / ${compteurTest}`
-    resultatTest.textContent = detailTest
-        // Pour calculer le score 
-    let scoreFinal = calculerScore(compteurReussi, compteurTest);
-    paraPourcentage.textContent= scoreFinal+"%";
- 
-    
-    
+            compteurTest++;
+            let reussite = false;
+            if (indicateur === "[OK]" && estValide) reussite = true;
+            if (indicateur === "[KO]" && !estValide) reussite = true;
+
+            if (reussite) compteurReussi++;
+
+        } else {
+            erreur.textContent = "Format invalide — ton test doit commencer par [OK] ou [KO]";
+            erreur.style.color = "red";
+            return; // on arrête dès la première ligne mal formatée
+        }
+    }
+
+    // Affichage des résultats
+    resultatTest.textContent = `${compteurReussi} / ${compteurTest}`;
+    paraPourcentage.textContent = calculerScore(compteurReussi, compteurTest) + "%";
 }
+
+// FONCTION POUR EVITER LES ATTAQUE REDOS 
+function testerAvecTimeout(regexValue, text, timeout = 200) {
+    return new Promise((resolve, reject) => {
+        const worker = new Worker("assets/js/regexWorker.js");
+        const timer = setTimeout(() => {
+            worker.terminate();
+            reject(new Error("Timeout : regex trop complexe ou potentiellement dangereuse"));
+        }, timeout);
+
+        worker.onmessage = (e) => {
+            clearTimeout(timer);
+            worker.terminate();
+            if (e.data.ok) resolve(e.data.resultat);
+            else reject(new Error(e.data.erreur));
+        };
+
+        worker.postMessage({ regexValue, text });
+    });
+}
+
 // FONCTION POUR CALCULER LE SCORE 
 function calculerScore(succes,total){
     if (total ==0) return 0;
