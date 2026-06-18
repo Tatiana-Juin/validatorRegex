@@ -20,7 +20,7 @@ let btnCopier = document.querySelector(".btn-copier");
 let erreur = document.querySelector(".erreur")
 let compteurReussi = 0;
 let compteurTest = 0; 
-let pourcentageFinale = 0; 
+
 
 // function pour les différents toogle 
 const funcToggle = (btn,content)=>{
@@ -82,7 +82,11 @@ btnLancer.addEventListener("click",(e)=>{
     e.preventDefault();
     let regexValue = inputRegex.value.trim();
     if(funcVerificationRegex(regexValue)){
-        funcTest(regexValue)
+        // funcTest(regexValue)
+        funcTest(regexValue).catch(err => {
+            erreur.textContent = "Erreur inattendue : " + err.message;
+            erreur.style.color = "red";
+    });
     }
 })
 
@@ -129,7 +133,7 @@ async function funcTest(regexValue) {
             } catch (err) {
                 erreur.textContent = "⚠️ " + err.message;
                 erreur.style.color = "red";
-                return; // on arrête tout si timeout ou erreur
+                return; 
             }
 
             compteurTest++;
@@ -203,11 +207,10 @@ function funcCopier(regexValue){
         console.error("Erreur lors de la copie ",err)
     })
 }
-
+// POUR COPIER QUAND ON CLIQUE SUR LE BTN 
 btnCopier.addEventListener("click",()=>{
     let regexValue = inputRegex.value.trim();
     if(funcVerificationRegex(regexValue)){
-        // console.log(regexValue)
         funcCopier(regexValue);
 
     }
