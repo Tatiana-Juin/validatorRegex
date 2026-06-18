@@ -44,8 +44,12 @@ toggleScore.addEventListener("click",()=>{
 
 // FONCTION POUR VALIDER LA STRUCTURE DES REGEX  
 function funcVerificationRegex(regexValue){
-     
-   
+     const MAX_CHARS = 6000;
+    if (regexValue.length > MAX_CHARS) {
+        erreur.textContent = "Trop de données (max 6000 caractères)";
+        erreur.style.color = "red";
+        return;
+    }
 //    pour verifier que le regex est bon on verifie les symbole 
     let symbolesRegex = /[\[\]\(\)\*\+\?\.\\\^\$\|\{\}]/;
 
@@ -62,6 +66,16 @@ function funcVerificationRegex(regexValue){
      return false;
     
    }
+//    Verifie que le reegx est syntaxiquement correcte 
+    try {
+        new RegExp(regexValue);
+    } catch (e) {
+        erreur.textContent = "Regex invalide : " + e.message;
+        erreur.style.color = "red";
+        return false;
+    }
+
+   
    erreur.textContent="";
     // appelle de la function pour faire les test
     return true;
